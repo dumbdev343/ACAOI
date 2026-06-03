@@ -1,2 +1,2 @@
-# ACAWI
-Automated Common Apps Windows Installer
+# ACAOI
+Automated Common Apps OS Installer
