@@ -1,2 +1,2 @@
 # ACAOI
-Automated Common Apps Windows Installer
+Automated Common Apps OS Installer
