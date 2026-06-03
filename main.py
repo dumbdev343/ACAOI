@@ -26,6 +26,7 @@ else:
     print("Sorry, this program only runs on Windows and Linux.")
 
 if lnx == True:
+    rw = False
     os.system("clear")
     print(ascii)
     print("Welcome to ACAOI (Automated Common Apps OS Installer)")
@@ -83,7 +84,7 @@ if lnx == True:
             if "yes" in yes:
                 print("Allowed.")
                 os.system("sudo pacman -S git fakeroot gcc debugedit make --noconfirm")
-                os.system("git clone https://aur.archlinux.org/paru.git")
+                os.system("sudo git clone https://aur.archlinux.org/paru.git")
                 os.system("cd paru")
                 os.system("makepkg -si --noconfirm")
                 print("Paru installed.")
