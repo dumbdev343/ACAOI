@@ -43,19 +43,19 @@ if "2" in ans:
     browser = input('Which browser do you want to install? 1. Firefox 2. Brave 3. Google Chrome 4. Chromium 5. DeGoogled Chromium 6. All: ')
     if "1" in browser:
         print("Firefox selected")
-        os.system("winget install Mozilla.Firefox --slient --accept-source-agreements --accept-package-agreeements")
+        os.system("winget install Mozilla.Firefox -h --accept-source-agreements --accept-package-agreeements")
     if "2" in browser:
         print("Brave selected.")
-        os.system("winget install Brave.Brave --slient --accept-source-agreements --accept-package-agreements")
+        os.system("winget install Brave.Brave -h --accept-source-agreements --accept-package-agreements")
     if "3" in browser:
         print("Google Chrome selected.")
-        os.system("winget install Google.Chrome --slient --accept-source-agreements --accept-package-agreements")
+        os.system("winget install Google.Chrome -h --accept-source-agreements --accept-package-agreements")
     if "4" in browser:
-        os.system("winget install Hibbiki.Chromium --slient --accept-package-agreements --accept-source-agreements")
+        os.system("winget install Hibbiki.Chromium -h --accept-package-agreements --accept-source-agreements")
     if "5" in browser:
         print("DeGoogled Chromium selected.")
-        os.system("winget install eloston.ungoogled-chromium --slient --accept-package-agreements --accept-source-agreements")
+        os.system("winget install --id eloston.ungoogled-chromium -h --accept-package-agreements --accept-source-agreements")
     if "6" in browser:
         print("All selected.")
-        os.system("winget install Mozilla.Firefox Brave.Brave Google.Chrome Hibbiki.Chromium --slient --accept-package-agreements --accept-source-agreements")
+        os.system("winget install Mozilla.Firefox Brave.Brave Google.Chrome Hibbiki.Chromium eleston.ungoogled-chromium --slient --accept-package-agreements --accept-source-agreements")
 
