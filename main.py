@@ -22,6 +22,7 @@ elif platform.system() == "Linux":
     print("Running on Linux")
 else:
     rw = False
+    lnx = False
     print("Sorry, this program only runs on Windows and Linux.")
 
 if lnx == True:
@@ -31,6 +32,17 @@ if lnx == True:
     pkg = input("What would you like to do? 1. Install your own package (Using your Distro's package manager) 2. Quit")
     if "1" in pkg:
         print("Installing custom package selected.")
+        if os.path.exists("/etc/apt/apt.conf.d"):
+            print("Apt detected, using that. ")
+            time.sleep(0.7)
+            pkg = input("What package do you want to install? (Requires Sudo): ")
+            os.system(f"sudo apt install {pkg} -y")
+        if os.path.exists("/etc/pacman.conf"):
+            print("Pacman detected. Using that")
+            time.sleep(0.7)
+            pkg = input("What package would you like to install (Requires Sudo): ")
+            os.system(f"sudo pacman -Sy {pkg}")
+
 
 if rw == True:
     os.system("cls")
