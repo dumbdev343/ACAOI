@@ -83,13 +83,13 @@ if lnx == True:
             yes = input("We need to install paru first. Ok? : ")
             if "yes" in yes:
                 print("Allowed.")
-                os.system("sudo pacman -S git fakeroot gcc debugedit make --noconfirm")
+                os.system("sudo pacman -Sy git fakeroot gcc debugedit make --noconfirm")
                 os.system("sudo git clone https://aur.archlinux.org/paru.git")
-                os.system("cd paru")
+                os.chdir(f"{os.getcwd()}/paru")
                 os.system("makepkg -si --noconfirm")
                 print("Paru installed.")
                 print("Installing most common apps...")
-                os.system("paru -S firefox spotify visual-studio-code-bin vlc libreoffice vim nano --noconfirm")
+                os.system("paru -Sy firefox spotify visual-studio-code-bin vlc libreoffice vim nano --noconfirm")
 
             
 
