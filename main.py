@@ -88,9 +88,10 @@ if lnx == True:
                 os.system("sudo pacman -S --needed git base-devel")
                 os.chdir(f"{os.getcwd()}/yay")
                 os.system("makepkg -si --noconfirm")
-                print("Paru installed.")
+                print("Yay installed.")
                 print("Installing most common apps...")
                 os.system("paru -Sy firefox spotify visual-studio-code-bin vlc libreoffice vim nano --noconfirm")
+
 
             
 
