@@ -25,7 +25,7 @@ if rw == True:
     os.system("cls")
     print(ascii)
     print("Welcome to ACAWI (Automated Common Apps Windows Installer)")
-    ans = input("What would you like to do? 1.Install ALL Common Apps Automaticaly 2. Install Only Some Common Applications 3. Install a Web Browser 4. Do Nothing and Exit? ")
+    ans = input("What would you like to do? 1.Install ALL Common Apps Automaticaly 2. Install Only Some Common Applications 3. Install a Web Browser 4. Install your own app 5. Do Nothing and Exit? ")
 
 if "1" in ans:
     print("1. Selected. Installing all common apps with log.")
@@ -58,6 +58,8 @@ if "2" in ans:
     if "6" in browser:
         print("All selected.")
         os.system("winget install Mozilla.Firefox Brave.Brave Google.Chrome Hibbiki.Chromium eleston.ungoogled-chromium --slient --accept-package-agreements --accept-source-agreements")
+    else:
+        print("None was selected, exiting...")
 if "3" in ans:
     browser = input('Which browser do you want to install? 1. Firefox 2. Brave 3. Google Chrome 4. Chromium 5. DeGoogled Chromium 6. All: ')
     if "1" in browser:
@@ -77,6 +79,13 @@ if "3" in ans:
     if "6" in browser:
         print("All selected.")
         os.system("winget install Mozilla.Firefox Brave.Brave Google.Chrome Hibbiki.Chromium eleston.ungoogled-chromium --slient --accept-package-agreements --accept-source-agreements")
+    else: 
+        print("None was selected, exiting")
+
+if "4" in ans:
+    app = input("What app do you want to install? (Using WinGet and ID (eg: Valve.Steam) ): ")
+    time.sleep(0.3)
+    os.system(f"winget install {app}")
 
 
 
