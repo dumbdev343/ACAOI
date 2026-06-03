@@ -29,6 +29,7 @@ if lnx == True:
     os.system("clear")
     print(ascii)
     print("Welcome to ACAOI (Automated Common Apps OS Installer)")
+    print("")
     pkg = input("What would you like to do? 1. Install your own package (Using your Distro's package manager) 2. Quit")
     if "1" in pkg:
         print("Installing custom package selected.")
@@ -41,13 +42,34 @@ if lnx == True:
             print("Pacman detected. Using that")
             time.sleep(0.7)
             pkg = input("What package would you like to install (Requires Sudo): ")
-            os.system(f"sudo pacman -Sy {pkg}")
+            os.system(f"sudo pacman -Sy {pkg} --noconfirm")
+        if os.path.exists("/etc/dnf/dnf.conf"):
+            print("DNF detected.")
+            time.sleep(0.7)
+            pkg = input("What package do you want to install? (Requires Sudo): ")
+            os.system(f"sudo dnf install {pkg} -y")
+        if os.path.exists("/data/data/com.termux/files/usr"):
+            print("Termux detected, using pkg.")
+            time.sleep(0.7)
+            pkg = input("What package do you want to install?: ")
+            os.system(f"pkg install {pkg} -y")
+        if os.path.exists("/etc/pkg"):
+            print("Pkg detected.")
+            time.sleep(0.7)
+            pkg = input("What package do you want to install? (Requires Sudo): ")
+            os.system(f"sudo pkg install {pkg} -y")
+        if os.path.exists("/etc/zypp/zypper.conf"):
+            print("Zypper detected.")
+            time.sleep(0.7)
+            pkg = input("What package do you want to install? (Requires Sudo): ")
+            os.system(f"sudo zypper -n install -l {pkg}")
 
 
 if rw == True:
     os.system("cls")
     print(ascii)
     print("Welcome to ACAOI (Automated Common Apps OS Installer)")
+    print("")
     ans = input("What would you like to do? 1.Install ALL Common Apps Automaticaly 2. Install Only Some Common Applications 3. Install a Web Browser 4. Install your own app 5. Do Nothing and Exit? ")
     if "1" in ans:
         print("1. Selected. Installing all common apps with log.")
