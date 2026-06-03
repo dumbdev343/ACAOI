@@ -84,8 +84,9 @@ if lnx == True:
             if "yes" in yes:
                 print("Allowed.")
                 os.system("sudo pacman -Sy git fakeroot gcc debugedit make --noconfirm")
-                os.system("sudo git clone https://aur.archlinux.org/paru.git")
-                os.chdir(f"{os.getcwd()}/paru")
+                os.system("git clone https://aur.archlinux.org/yay.git")
+                os.system("sudo pacman -S --needed git base-devel")
+                os.chdir(f"{os.getcwd()}/yay")
                 os.system("makepkg -si --noconfirm")
                 print("Paru installed.")
                 print("Installing most common apps...")
