@@ -30,7 +30,7 @@ if lnx == True:
     print(ascii)
     print("Welcome to ACAOI (Automated Common Apps OS Installer)")
     print("")
-    pkg = input("What would you like to do? 1. Install your own package (Using your Distro's package manager) 2. Quit")
+    pkg = input("What would you like to do? 1. Install your own package (Using your Distro's package manager) 2. Install a list of common apps (VS Code, Spotify, Firefox, LibreOffice, Steam etc) 3. Quit? :")
     if "1" in pkg:
         print("Installing custom package selected.")
         if os.path.exists("/etc/apt/apt.conf.d"):
@@ -63,6 +63,35 @@ if lnx == True:
             time.sleep(0.7)
             pkg = input("What package do you want to install? (Requires Sudo): ")
             os.system(f"sudo zypper -n install -l {pkg}")
+    if "2" in pkg:
+        if os.path.exists("/etc/apt/apt.conf.d"):
+            print("Apt detected, using that. ") 
+            time.sleep(1)
+            os.system("sudo apt install steam-installer lutris firefox-esr vlc libreoffice vim nano")
+            print("Installing Visual Studio Code...")
+            time.sleep(1)
+            os.system(f"wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O /tmp/code.deb")
+            os.system(f"sudo dpkg -i /tmp/code.deb")
+            print("Installing Spotify...")
+            os.system("curl -sS https://download.spotify.com/debian/pubkey_5384CE82BA52C83A.asc | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg")
+            os.sysetm(f'echo "deb https://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list"')
+            os.system("sudo apt update && sudo apt install spotify-client -y")
+            print("Done!")
+        if os.path.exists("/etc/pacman.conf"):
+            print("Pacman detected. Installing with that")
+            yes = input("We need to install paru first. Ok? : ")
+            if "yes" in yes:
+                print("Allowed.")
+                os.system("sudo pacman -S git fakeroot gcc debugedit make --noconfirm")
+                os.system("git clone https://aur.archlinux.org/paru.git")
+                os.system("cd paru")
+                os.system("makepkg -si --noconfirm")
+                print("Paru installed.")
+                print("Installing most common apps...")
+                os.system("paru -S firefox spotify visual-studio-code-bin vlc libreoffice vim nano --noconfirm")
+
+            
+
 
 
 if rw == True:
@@ -82,7 +111,7 @@ if rw == True:
     
     if "2" in ans:
         print("2. Selected. Installing Set of only some common apps")
-        os.system("winget import simple.txt")
+        os.system("winget import sw.txt -h --accept-source-agreements --accept-package-agreements")
         browser = input('Which browser do you want to install? 1. Firefox 2. Brave 3. Google Chrome 4. Chromium 5. DeGoogled Chromium 6. All: 7: None:  ')
         if "1" in browser:
             print("Firefox selected")
