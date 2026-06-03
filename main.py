@@ -75,7 +75,7 @@ if rw == True:
         print("1. Selected. Installing all common apps with log.")
         confirm = input("Are you sure you want to do this? This will install 40+ apps on your Computer eg: Firefox, Chrome, Brave, WireShark, Spotify etc: ")
         if "yes" in confirm:
-            os.system(f"winget import host.txt --accept-source-agreements --accept-package-agreements")
+            os.system(f"winget import wa.txt -h --accept-source-agreements --accept-package-agreements")
         else:
             print("Something other than yes was entered, exiting...")
 
