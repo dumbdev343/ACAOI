@@ -88,9 +88,15 @@ if lnx == True:
                 os.system("sudo pacman -S --needed git base-devel")
                 os.chdir(f"{os.getcwd()}/yay")
                 os.system("makepkg -si --noconfirm")
-                print("Yay installed.")
-                print("Installing most common apps...")
-                os.system("paru -Sy firefox spotify visual-studio-code-bin vlc libreoffice vim nano --noconfirm")
+                if os.path.exists("/usr/bin/yay"):
+                    print("Yay installed.")
+                    print("Installing most common apps...")
+                    os.system("paru -Sy firefox spotify visual-studio-code-bin vlc libreoffice vim nano --noconfirm")
+                else: 
+                    print("Yay not installed.")
+            
+               
+                
 
 
             
