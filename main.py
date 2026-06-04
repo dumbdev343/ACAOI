@@ -21,6 +21,7 @@ elif platform.system() == "Linux":
     lnx = True
     print("Running on Linux")
 elif platform.system() == "Darwin":
+    rw = True
     print("Running on Darwin/macOS.")
     time.sleep(0.7)
     os.system("clear")
@@ -28,7 +29,7 @@ elif platform.system() == "Darwin":
     print("Welcome to ACAOI (Automated Common Apps OS Installer)")
     print("")
     print("Please note all tasks are done through Homebrew.")
-    ans = input("What would you like to do? 1. Install your own package")
+    ans = input("What would you like to do? 1. Install your own package : ")
     if "1" in ans:
         print("Install own package selected")
         if os.path.exists("/opt/homebrew"):
@@ -41,7 +42,7 @@ elif platform.system() == "Darwin":
             time.sleep(0.7)
             os.system(f"brew install --cask {pkgname}")
         else:
-            confirm = input("Homebrew needs to be installed, continue?")
+            confirm = input("Homebrew needs to be installed, continue?: ")
             if "yes" in confirm:
                 print("Confirmed.")
                 time.sleep(0.7)
