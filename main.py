@@ -69,7 +69,7 @@ if lnx == True:
     print(ascii)
     print("Welcome to ACAOI (Automated Common Apps OS Installer)")
     print("")
-    pkg = input("What would you like to do? 1. Install your own package (Using your Distro's package manager) 2. Install a list of common apps (VS Code, Spotify, Firefox, LibreOffice, Steam etc) 3. Quit? :")
+    pkg = input("What would you like to do? 1. Install your own package (Using your Distro's package manager) 2. Install a list of common apps (VS Code, Spotify, Firefox, LibreOffice, Steam etc) 3. Install a browser 4. Quit? :")
     if "1" in pkg:
         print("Installing custom package selected.")
         if os.path.exists("/etc/apt/apt.conf.d"):
@@ -149,6 +149,21 @@ if lnx == True:
             os.system("pkg install firefox vscode libreoffice vim nano -y")
             time.sleep(0.7)
             print("Done!")
+    if "3" in pkg:
+        print("Browsers selected.")
+        time.sleep(0.7)
+        if os.path.exists("/etc/apt/apt.conf.d"):
+            print("Using APT.")
+            browser = input("What browser do you want to install? 1. Firefox ESR 2. Chromium 3. Brave 4. Google Chrome 5. All")
+            if "1" in browser:
+                print("Firefox ESR selected.")
+                time.sleep(0.7)
+                os.system("sudo apt install firefox-esr -y")
+                if os.path.exists("/usr/bin/firefox-esr"):
+                    print("Done!")
+                else:
+                    print("Firefox ESR not installed.")
+
     
 
                 
