@@ -154,7 +154,7 @@ if lnx == True:
         time.sleep(0.7)
         if os.path.exists("/etc/apt/apt.conf.d"):
             print("Using APT.")
-            browser = input("What browser do you want to install? 1. Firefox ESR 2. Chromium 3. Brave 4. Google Chrome 5. All")
+            browser = input("What browser do you want to install? 1. Firefox ESR 2. Chromium 3. Brave 4. Google Chrome 5. All? :")
             if "1" in browser:
                 print("Firefox ESR selected.")
                 time.sleep(0.7)
