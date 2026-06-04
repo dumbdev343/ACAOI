@@ -163,6 +163,16 @@ if lnx == True:
                     print("Done!")
                 else:
                     print("Firefox ESR not installed.")
+            if "4" in browser:
+                print("Google Chrome selected.")
+                time.sleep(0.7)
+                os.system("wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb")
+                os.system("sudo dpkg -i google-chrome-stable_current_amd64.deb")
+                time.sleep(0.7)
+                if os.path.exists("/usr/bin/google-chrome-stable"):
+                    print("Chrome installed.")
+                else:
+                    print("Chrome not installed.")
 
     
 
