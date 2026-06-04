@@ -45,7 +45,8 @@ elif platform.system() == "Darwin":
             if "yes" in confirm:
                 print("Confirmed.")
                 time.sleep(0.7)
-                os.system("NONINTERACTIVE=1 /bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)'")
+                os.system("curl -LO https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh")
+                os.system("NONINTERACTIVE=1 /bin/bash install.sh")
                 if os.path.exists("/opt/homebrew"):
                     print("Homebrew installed.")
                     hbwi = True
