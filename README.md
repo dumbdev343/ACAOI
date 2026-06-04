@@ -1,4 +1,4 @@
-# ACAOI
+# ACAOI💻
 Automated Common Apps OS Installer
 
 ![screenshot](screenshot.png)
