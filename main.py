@@ -214,18 +214,6 @@ if lnx == True:
                     print("Firefox installed.")
                 else:
                     print("Firefox wasn't installed.")
-
-
-
-
-    
-
-                
-            
-               
-                
-
-
             
 
 
