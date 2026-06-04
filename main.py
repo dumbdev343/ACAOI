@@ -154,13 +154,18 @@ if lnx == True:
         time.sleep(0.7)
         if os.path.exists("/etc/apt/apt.conf.d"):
             print("Using APT.")
-            browser = input("What browser do you want to install? 1. Firefox ESR 2. Chromium 3. Brave 4. Google Chrome 5. All? :")
+            browser = input("What browser do you want to install? 1. Firefox 2. Chromium  3. Brave 4. Google Chrome 5. All? :")
             if "1" in browser:
-                print("Firefox ESR selected.")
+                print("Firefox selected.")
                 time.sleep(0.7)
                 if os.path.exists("/etc/apt/apt.conf.d"):
                     print("Using apt")
                     os.system("sudo apt install firefox-esr -y")
+                if os.path.exists("/etc/pacman.conf"):
+                    os.system("sudo pacman -S firefox --noconfirm")
+                if os.path.exists("/etc/dnf/dnf.conf"):
+                    print("Using DNF.")
+                    os.system("sudo dnf install firefox -y")
                 if os.path.exists("/usr/bin/firefox-esr") or os.path.exists("/usr/bin/firefox"):
                     print("Done!")
                 else:
@@ -171,6 +176,12 @@ if lnx == True:
                 if os.path.exists("/etc/apt/apt.conf.d"):
                     print("Using apt.")
                     os.system(f"sudo apt install chromium -y")
+                if os.path.exists("/etc/pacman.conf"):
+                    print("Using pacman")
+                    os.system("sudo pacman -S chromium --noconfirm")
+                if os.path.exists("/etc/dnf/dnf.conf"):
+                    print("Using dnf.")
+                    os.system("sudo dnf install chromium -y")
                 if os.path.exists("/usr/bin/chromium"):
                     print("Chromium installed.")
                 else: 
@@ -188,8 +199,16 @@ if lnx == True:
             if "4" in browser:
                 print("Google Chrome selected.")
                 time.sleep(0.7)
-                os.system("wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb")
-                os.system("sudo dpkg -i google-chrome-stable_current_amd64.deb")
+                if os.path.exists("/etc/apt/apt.conf.d"):
+                    os.system("wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb")
+                    os.system("sudo dpkg -i google-chrome-stable_current_amd64.deb")
+                if os.path.exists("/etc/dnf/dnf.conf"):
+                    os.system("sudo dnf config-manager --set-enabled google-chrome")
+                    os.system("sudo dnf install google-chrome-stable")
+                if os.path.exists("/etc/pacman.conf"):
+                    os.system("git clone https://aur.archlinux.org/google-chrome-stable.git")
+                    os.chdir(f"{os.getcwd()}/google-chrome-stable/")
+                    os.system("makepkg -si --noconfirm")
                 time.sleep(0.7)
                 if os.path.exists("/usr/bin/google-chrome-stable"):
                     print("Chrome installed.")
