@@ -158,11 +158,33 @@ if lnx == True:
             if "1" in browser:
                 print("Firefox ESR selected.")
                 time.sleep(0.7)
-                os.system("sudo apt install firefox-esr -y")
-                if os.path.exists("/usr/bin/firefox-esr"):
+                if os.path.exists("/etc/apt/apt.conf.d"):
+                    print("Using apt")
+                    os.system("sudo apt install firefox-esr -y")
+                if os.path.exists("/usr/bin/firefox-esr") or os.path.exists("/usr/bin/firefox"):
                     print("Done!")
                 else:
                     print("Firefox ESR not installed.")
+            if "2" in browser:
+                print("Chromium selected.")
+                time.sleep(0.7)
+                if os.path.exists("/etc/apt/apt.conf.d"):
+                    print("Using apt.")
+                    os.system(f"sudo apt install chromium -y")
+                if os.path.exists("/usr/bin/chromium"):
+                    print("Chromium installed.")
+                else: 
+                    print("Chromium not installed.")
+            if "3" in browser:
+                print("Brave selected.")
+                time.sleep(0.7)
+                os.system("curl -fsS https://dl.brave.com/install.sh | sh")
+                os.system("clear")
+                if os.path.exists("/usr/bin/brave-browser"):   
+                    print("Brave installed")
+                else: 
+                    print("Brave not installed.")
+                
             if "4" in browser:
                 print("Google Chrome selected.")
                 time.sleep(0.7)
