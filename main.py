@@ -256,7 +256,7 @@ if rw == True:
     ans = input("What would you like to do? 1.Install ALL Common Apps Automaticaly 2. Install Only Some Common Applications 3. Install a Web Browser 4. Install your own app 5. Do Nothing and Exit? ")
     if "1" in ans:
         print("1. Selected. Installing all common apps with log.")
-        confirm = input("Are you sure you want to do this? This will install 40+ apps on your Computer eg: Firefox, Chrome, Brave, WireShark, Spotify etc: ")
+        confirm = input("Are you sure you want to do this? This will install 10-20+ apps on your Computer eg: Firefox, Chrome, Brave, WireShark, Spotify etc: ")
         if "yes" in confirm:
             os.system(f"winget import wa.txt -h --accept-source-agreements --accept-package-agreements")
         else:

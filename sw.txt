@@ -10,6 +10,12 @@
 					"PackageIdentifier" : "VideoLAN.VLC"
 				},
 				{
+					"PackageIdentifier" : "Mozilla.Firefox"
+				},
+				{
+					"PackageIdentifier" : "Google.Chrome"
+				},
+				{
 					"PackageIdentifier" : "PuTTY.PuTTY"
 				},
 				{

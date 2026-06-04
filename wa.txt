@@ -10,22 +10,7 @@
 					"PackageIdentifier" : "7zip.7zip"
 				},
 				{
-					"PackageIdentifier" : "CPUID.HWMonitor"
-				},
-				{
-					"PackageIdentifier" : "CrystalDewWorld.CrystalDiskInfo"
-				},
-				{
-					"PackageIdentifier" : "REALiX.HWiNFO"
-				},
-				{
 					"PackageIdentifier" : "Mozilla.Firefox"
-				},
-				{
-					"PackageIdentifier" : "PassMark.PerformanceTest"
-				},
-				{
-					"PackageIdentifier" : "Prusa3D.PrusaSlicer"
 				},
 				{
 					"PackageIdentifier" : "VideoLAN.VLC"
@@ -40,9 +25,6 @@
 					"PackageIdentifier" : "Google.Chrome"
 				},
 				{
-					"PackageIdentifier" : "WinDirStat.WinDirStat"
-				},
-				{
 					"PackageIdentifier" : "PuTTY.PuTTY"
 				},
 				{
@@ -52,19 +34,7 @@
 					"PackageIdentifier" : "Brave.Brave"
 				},
 				{
-					"PackageIdentifier" : "HandBrake.HandBrake"
-				},
-				{
-					"PackageIdentifier" : "LIGHTNINGUK.ImgBurn"
-				},
-				{
-					"PackageIdentifier" : "KDE.Kdenlive"
-				},
-				{
 					"PackageIdentifier" : "OBSProject.OBSStudio"
-				},
-				{
-					"PackageIdentifier" : "RockstarGames.Launcher"
 				},
 				{
 					"PackageIdentifier" : "Valve.Steam"
