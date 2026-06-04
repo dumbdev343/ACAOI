@@ -205,6 +205,14 @@ if lnx == True:
                     os.system("wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb")
                     os.system("sudo dpkg -i google-chrome-stable_current_amd64.deb")
                     os.system("sudo apt install firefox-esr chromium -y")
+                if os.path.exists("/etc/pacman.conf"):
+                    os.system("sudo pacman -Sy chromium firefox --noconfirm")
+                    os.system("git clone https://aur.archlinux.org/google-chrome-stable.git")
+                    os.chdir(f"{os.getcwd()}/google-chrome-stable/")
+                    os.system("makepkg -si --noconfirm")
+                if os.path.exists("/etc/dnf/dnf.conf"):
+                    os.system("sudo dnf config-manager --set-enabled google-chrome")
+                    os.system("sudo dnf install google-chrome-stable chromium firefox -y")
                 time.sleep(0.7)
                 if os.path.exists("/usr/bin/chromium") and os.path.exists("/usr/bin/google-chrome-stable") and os.path.exists("/usr/bin/brave-browser"):
                     print("Brave, Google Chrome, Chromium installed")
