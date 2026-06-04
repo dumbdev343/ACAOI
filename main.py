@@ -20,10 +20,19 @@ if platform.system() == "Windows":
 elif platform.system() == "Linux":
     lnx = True
     print("Running on Linux")
+elif platform.system() == "Darwin":
+    print("Running on Darwin/macOS.")
+    time.sleep(0.7)
+    os.system("clear")
+    print(ascii)
+    print("Welcome to ACAOI (Automated Common Apps OS Installer)")
+    print("")
+    print("Please note all tasks are done through Homebrew.")
+    ans = input("What would you like to do? 1. Install your own package")
 else:
     rw = False
     lnx = False
-    print("Sorry, this program only runs on Windows and Linux.")
+    print("Sorry, this program only runs on Windows, macOS/Darwin and Linux.")
 
 if lnx == True:
     rw = False
@@ -94,6 +103,26 @@ if lnx == True:
                     os.system("paru -Sy firefox spotify visual-studio-code-bin vlc libreoffice vim nano --noconfirm")
                 else: 
                     print("Yay not installed.")
+        if os.path.exists("/etc/dnf/dnf.conf"):
+            print("Using DNF.")
+            time.sleep(0.7)
+            print("Instaling common apps...")
+            os.system("sudo dnf install firefox lutris vlc steam libreoffice vim nano -y")
+            time.sleep(0.7)
+            print("Installing Visual Studio Code and Spotify")
+            os.system("flatpak install flathub com.visualstudio.code com.spotify.Client -y")
+            time.sleep(0.7)
+            print("Done!")
+        if os.path.exists("/etc/pkg"):
+            print("Using PKG.")
+            time.sleep(0.7)
+            print("Installing common apps...")
+            os.system("pkg install firefox vscode libreoffice vim nano -y")
+            time.sleep(0.7)
+            print("Done!")
+    
+
+                
             
                
                 
