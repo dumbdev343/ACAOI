@@ -195,6 +195,28 @@ if lnx == True:
                     print("Chrome installed.")
                 else:
                     print("Chrome not installed.")
+            if "5" in browser:
+                print("All selected.")
+                time.sleep(0.7)
+                print("Installing Brave")
+                os.system("curl -fsS https://dl.brave.com/install.sh | sh")
+                print("Installing Google Chrome, Chromium, and Firefox")
+                if os.path.exists("/etc/apt/apt.conf.d"):
+                    os.system("wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb")
+                    os.system("sudo dpkg -i google-chrome-stable_current_amd64.deb")
+                    os.system("sudo apt install firefox-esr chromium -y")
+                time.sleep(0.7)
+                if os.path.exists("/usr/bin/chromium") and os.path.exists("/usr/bin/google-chrome-stable") and os.path.exists("/usr/bin/brave-browser"):
+                    print("Brave, Google Chrome, Chromium installed")
+                else: 
+                    print("One of the browsers wern't installed. Either Brave, Google Chrome, or Chromium")
+                if os.path.exists("/usr/bin/firefox-esr") or os.path.exists("/usr/bin/firefox"):
+                    print("Firefox installed.")
+                else:
+                    print("Firefox wasn't installed.")
+
+
+
 
     
 
