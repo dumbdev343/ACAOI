@@ -21,7 +21,7 @@ elif platform.system() == "Linux":
     lnx = True
     print("Running on Linux")
 elif platform.system() == "Darwin":
-    rw = True
+    rw = False
     print("Running on Darwin/macOS.")
     time.sleep(0.7)
     os.system("clear")
@@ -53,6 +53,7 @@ elif platform.system() == "Darwin":
                     hbwi = True
                 if hbwi:
                     print("Please note packages are being installed through Homebrew")
+                    print("Please note that you may need to restart your terminal and the script for it to see the brew command.")
                     print("")
                     time.sleep(0.7)
                     pkgname = input("What package do you want to install?: ")
